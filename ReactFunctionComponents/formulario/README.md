@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Conteúdo desse curso
+* Aprenda a usar Hooks de maneira segura
+* Entenda como trabalhar com Material UI
+* Saiba criar Function Components
+* Veja uma forma de fazer validação de dados em formulários
+* Conheça os conceitos de formulários controlados e não controlados
+
+# Link do curso 
+* https://cursos.alura.com.br/course/react-function-components
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

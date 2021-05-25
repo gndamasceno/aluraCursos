@@ -4,12 +4,14 @@ import {
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function FormularioCadastro({ aoEnviar }) {
+function FormularioCadastro({ aoEnviar, validarCPF }) {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
   const [promocoes, setPromocoes] = useState(true);
   const [novidades, setNovidades] = useState(false);
+  const [erros, setErros] = useState({ cpf: { valido: true, texto: 'teste' } });
+
   return (
     <form
       onSubmit={(event) => {
@@ -46,6 +48,12 @@ function FormularioCadastro({ aoEnviar }) {
         onChange={(event) => {
           setCpf(event.target.value);
         }}
+        onBlur={() => {
+          const ehValido = validarCPF(cpf);
+          setErros({ cpf: ehValido });
+        }}
+        error={!erros.cpf.valido}
+        helperText={erros.cpf.texto}
         id="cpf"
         label="CPF"
         variant="outlined"
@@ -86,5 +94,6 @@ function FormularioCadastro({ aoEnviar }) {
 }
 FormularioCadastro.propTypes = {
   aoEnviar: PropTypes.func.isRequired,
+  validarCPF: PropTypes.func.isRequired,
 };
 export default FormularioCadastro;

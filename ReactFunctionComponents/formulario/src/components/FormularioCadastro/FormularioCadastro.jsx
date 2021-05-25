@@ -2,8 +2,9 @@ import {
   Button, Switch, FormControlLabel, TextField,
 } from '@material-ui/core';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-function FormularioCadastro() {
+function FormularioCadastro({ aoEnviar }) {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
@@ -13,7 +14,7 @@ function FormularioCadastro() {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        console.log({
+        aoEnviar({
           nome, sobrenome, cpf, promocoes, novidades,
         });
       }}
@@ -83,5 +84,7 @@ function FormularioCadastro() {
     </form>
   );
 }
-
+FormularioCadastro.propTypes = {
+  aoEnviar: PropTypes.func.isRequired,
+};
 export default FormularioCadastro;
